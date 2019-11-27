@@ -1,4 +1,4 @@
-# Sistema-de-gerenciamento-de-instituicao-de-ensino
+# Sistema-gerenciador-de-disciplinas-alunos-e-professores
 
 ## Disciplina
 > Engenharia de Software (2019.2)
@@ -9,7 +9,3 @@
 
 ## Aluno
 > José Pirangaba ([pirangabaneto](https://github.com/pirangabaneto))
-
-## Link Heroku
-
-> https://projetosiga.herokuapp.com/

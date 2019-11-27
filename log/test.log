@@ -1,0 +1,91 @@
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (66.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (101.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdministradors (20191127082552)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "administradors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar, "senha" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191127082552"]]
+  [1m[35m (73.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2019-11-27 11:03:16.971057"], ["updated_at", "2019-11-27 11:03:16.971057"]]
+  [1m[35m (90.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "administradors"[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "administradors" ("login", "senha", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2019-11-27 11:03:29.763675', '2019-11-27 11:03:29.763675', 980190962)[0m
+  [1m[36mFixture Insert (0.0ms)[0m  [1m[32mINSERT INTO "administradors" ("login", "senha", "created_at", "updated_at", "id") VALUES ('MyString', 'MyString', '2019-11-27 11:03:29.763675', '2019-11-27 11:03:29.763675', 298486374)[0m
+  [1m[35m (79.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------
+AdministradorsControllerTest: test_should_destroy_administrador
+---------------------------------------------------------------
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "administradors"[0m
+Started DELETE "/administradors/980190962" for 127.0.0.1 at 2019-11-27 08:03:30 -0300
+Processing by AdministradorsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "administradors" WHERE "administradors"."id" = ?[0m  [["id", 980190962]]
+  [1m[35m (1.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/administradors
+Completed 302 Found in 14ms (ActiveRecord: 2.0ms)
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "administradors"[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------------------
+AdministradorsControllerTest: test_should_get_edit
+--------------------------------------------------
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/administradors/980190962/edit" for 127.0.0.1 at 2019-11-27 08:03:39 -0300
+Processing by AdministradorsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  Rendering administradors/edit.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (43.9ms)
+  Rendered administradors/edit.html.erb within layouts/application (83.8ms)
+Completed 200 OK in 774ms (Views: 734.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------
+AdministradorsControllerTest: test_should_get_index
+---------------------------------------------------
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/administradors" for 127.0.0.1 at 2019-11-27 08:03:40 -0300
+Processing by AdministradorsController#index as HTML
+  Rendering administradors/index.html.erb within layouts/application
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT "administradors".* FROM "administradors"[0m
+  Rendered administradors/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 40ms (Views: 2.7ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------------
+AdministradorsControllerTest: test_should_show_administrador
+------------------------------------------------------------
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/administradors/980190962" for 127.0.0.1 at 2019-11-27 08:03:40 -0300
+Processing by AdministradorsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+  Rendering administradors/show.html.erb within layouts/application
+  Rendered administradors/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 40ms (Views: 2.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------
+AdministradorsControllerTest: test_should_get_new
+-------------------------------------------------
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/administradors/new" for 127.0.0.1 at 2019-11-27 08:03:40 -0300
+Processing by AdministradorsController#new as HTML
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (1.0ms)
+  Rendered administradors/new.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 41ms (Views: 3.1ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m

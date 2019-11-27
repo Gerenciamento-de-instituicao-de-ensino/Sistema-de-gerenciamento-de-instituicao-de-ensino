@@ -49,7 +49,7 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
-  gem 'sqlite3'
+  gem 'sqlite3', '~> 1.3.6'
 end
 
 group :development do
@@ -61,3 +61,5 @@ group :production do
   gem 'pg' # use PostgreSQL in production (Heroku)
   gem 'rails_12factor' # Heroku-specific production settings
 end
+
+gem 'tzinfo-data'
