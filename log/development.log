@@ -1,0 +1,324 @@
+Started GET "/" for ::1 at 2019-11-27 05:28:03 -0300
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.7) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.7) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (79.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (78.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAdministradors (20191127082552)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "administradors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "login" varchar, "senha" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191127082552"]]
+  [1m[35m (70.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-11-27 08:28:33.283179"], ["updated_at", "2019-11-27 08:28:33.283179"]]
+  [1m[35m (80.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2019-11-27 05:28:36 -0300
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdministradorsController#new as HTML
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (112.9ms)
+  Rendered administradors/new.html.erb within layouts/application (164.8ms)
+Completed 500 Internal Server Error in 2486ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (TypeError: O objeto não dá suporte para a propriedade ou método):
+    4:     <title>Teste</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___615268789_56068692'
+Started GET "/" for ::1 at 2019-11-27 05:33:41 -0300
+Processing by AdministradorsController#new as HTML
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (3.0ms)
+  Rendered administradors/new.html.erb within layouts/application (51.9ms)
+Completed 500 Internal Server Error in 862ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (TypeError: O objeto não dá suporte para a propriedade ou método):
+    4:     <title>Teste</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___615268789_53110752'
+Started GET "/" for ::1 at 2019-11-27 05:35:22 -0300
+Processing by AdministradorsController#new as HTML
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (2.0ms)
+  Rendered administradors/new.html.erb within layouts/application (52.9ms)
+Completed 500 Internal Server Error in 357ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (The asset "default.css" is not present in the asset pipeline.):
+    4:     <title>Teste</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'default', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___615268789_95057448'
+Started GET "/" for ::1 at 2019-11-27 05:37:28 -0300
+Processing by AdministradorsController#new as HTML
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (3.0ms)
+  Rendered administradors/new.html.erb within layouts/application (80.8ms)
+Completed 500 Internal Server Error in 1039ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (TypeError: O objeto não dá suporte para a propriedade ou método):
+    4:     <title>Teste</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___615268789_30402972'
+Started GET "/" for ::1 at 2019-11-27 05:37:52 -0300
+Processing by AdministradorsController#new as HTML
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (2.0ms)
+  Rendered administradors/new.html.erb within layouts/application (51.9ms)
+Completed 500 Internal Server Error in 946ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (TypeError: O objeto não dá suporte para a propriedade ou método):
+    4:     <title>Teste</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___615268789_93062304'
+Started GET "/" for ::1 at 2019-11-27 05:42:36 -0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdministradorsController#new as HTML
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (21.9ms)
+  Rendered administradors/new.html.erb within layouts/application (73.8ms)
+Completed 200 OK in 1856ms (Views: 1773.7ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/administradors" for ::1 at 2019-11-27 05:43:16 -0300
+Processing by AdministradorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hPbN3pjjDdDplEgX5/Ka0rRTp6JaPixCgzFcI8Uy6JS/V38kue/NwsaLr5pcC3FjcglnBgBVwZiz+YNci5Ce0w==", "administrador"=>{"login"=>"Pirangaba", "senha"=>"admin"}, "commit"=>"Create Administrador"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "administradors" ("login", "senha", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["login", "Pirangaba"], ["senha", "admin"], ["created_at", "2019-11-27 08:43:16.899607"], ["updated_at", "2019-11-27 08:43:16.899607"]]
+  [1m[35m (83.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/administradors/1
+Completed 302 Found in 92ms (ActiveRecord: 84.9ms)
+
+
+Started GET "/administradors/1" for ::1 at 2019-11-27 05:43:17 -0300
+Processing by AdministradorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering administradors/show.html.erb within layouts/application
+  Rendered administradors/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 308ms (Views: 200.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/administradors/1/edit" for ::1 at 2019-11-27 05:43:20 -0300
+Processing by AdministradorsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering administradors/edit.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (3.0ms)
+  Rendered administradors/edit.html.erb within layouts/application (57.8ms)
+Completed 200 OK in 333ms (Views: 273.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/administradors/1" for ::1 at 2019-11-27 05:43:22 -0300
+Processing by AdministradorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering administradors/show.html.erb within layouts/application
+  Rendered administradors/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 260ms (Views: 208.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/administradors" for ::1 at 2019-11-27 05:43:24 -0300
+Processing by AdministradorsController#index as HTML
+  Rendering administradors/index.html.erb within layouts/application
+  [1m[36mAdministrador Load (1.0ms)[0m  [1m[34mSELECT "administradors".* FROM "administradors"[0m
+  Rendered administradors/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 275ms (Views: 221.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/administradors/new" for ::1 at 2019-11-27 05:51:58 -0300
+Processing by AdministradorsController#new as HTML
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (3.0ms)
+  Rendered administradors/new.html.erb within layouts/application (58.8ms)
+Completed 200 OK in 358ms (Views: 286.3ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/administradors" for ::1 at 2019-11-27 05:52:00 -0300
+Processing by AdministradorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dplgTFpbcHSveFcsX0zAJx1ntncEI+fGd5K7+8ADoHifjjPte2vXeUKfjI1u6X/21b/Ma/9jIpd48nVbh+aDMg==", "administrador"=>{"login"=>"", "senha"=>""}, "commit"=>"Create Administrador"}
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAdministrador Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "administradors" WHERE "administradors"."login" = ? LIMIT ?[0m  [["login", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (3.0ms)
+  Rendered administradors/new.html.erb within layouts/application (56.8ms)
+Completed 200 OK in 300ms (Views: 276.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/administradors" for ::1 at 2019-11-27 05:52:16 -0300
+Processing by AdministradorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WAwkOCqLEGNFO69d6Ta2FlglqgX/S1fBk6ap1451LvhjrZbCC4fQcWokSNBSz12nnn9qoaUguhujbnaowNdYvw==", "administrador"=>{"login"=>"Pirangaba", "senha"=>""}, "commit"=>"Create Administrador"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAdministrador Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "administradors" WHERE "administradors"."login" = ? LIMIT ?[0m  [["login", "Pirangaba"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (3.0ms)
+  Rendered administradors/new.html.erb within layouts/application (57.8ms)
+Completed 200 OK in 281ms (Views: 275.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/administradors" for ::1 at 2019-11-27 05:52:27 -0300
+Processing by AdministradorsController#index as HTML
+  Rendering administradors/index.html.erb within layouts/application
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT "administradors".* FROM "administradors"[0m
+  Rendered administradors/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 256ms (Views: 206.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/administradors/1/edit" for ::1 at 2019-11-27 05:52:29 -0300
+Processing by AdministradorsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrador Load (1.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering administradors/edit.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (2.0ms)
+  Rendered administradors/edit.html.erb within layouts/application (58.8ms)
+Completed 200 OK in 363ms (Views: 276.6ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/administradors/1" for ::1 at 2019-11-27 05:52:33 -0300
+Processing by AdministradorsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qNuInOdLrR9I1sVbLOBTPQVfDzgTIru652BRUFnGclMYl+Ot2PZwxDvN2mphgNosLn63EnP5jq1v+c1RXJytEg==", "administrador"=>{"login"=>"", "senha"=>""}, "commit"=>"Update Administrador", "id"=>"1"}
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAdministrador Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "administradors" WHERE "administradors"."login" = ? AND ("administradors"."id" != ?) LIMIT ?[0m  [["login", ""], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering administradors/edit.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (3.0ms)
+  Rendered administradors/edit.html.erb within layouts/application (61.8ms)
+Completed 200 OK in 280ms (Views: 274.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/administradors" for ::1 at 2019-11-27 05:52:37 -0300
+Processing by AdministradorsController#index as HTML
+  Rendering administradors/index.html.erb within layouts/application
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT "administradors".* FROM "administradors"[0m
+  Rendered administradors/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 271ms (Views: 219.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/administradors/1" for ::1 at 2019-11-27 05:52:46 -0300
+Processing by AdministradorsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrador Load (1.0ms)[0m  [1m[34mSELECT  "administradors".* FROM "administradors" WHERE "administradors"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering administradors/show.html.erb within layouts/application
+  Rendered administradors/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 274ms (Views: 223.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/administradors" for ::1 at 2019-11-27 05:52:51 -0300
+Processing by AdministradorsController#index as HTML
+  Rendering administradors/index.html.erb within layouts/application
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT "administradors".* FROM "administradors"[0m
+  Rendered administradors/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 271ms (Views: 222.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/administradors/new" for ::1 at 2019-11-27 05:54:31 -0300
+Processing by AdministradorsController#new as HTML
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (2.0ms)
+  Rendered administradors/new.html.erb within layouts/application (52.9ms)
+Completed 200 OK in 328ms (Views: 255.8ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/administradors" for ::1 at 2019-11-27 05:54:32 -0300
+Processing by AdministradorsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lUSSLf92xuAYUHj/hcUIl/O0P9xeRSlWQ+USMseeL2Z8U8GM3kZh7fW3o160YLdGO2xFwKUF7AdMhdySgHsMLA==", "administrador"=>{"login"=>"", "senha"=>""}, "commit"=>"Create Administrador"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAdministrador Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "administradors" WHERE "administradors"."login" = ? LIMIT ?[0m  [["login", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering administradors/new.html.erb within layouts/application
+  Rendered administradors/_form.html.erb (7.0ms)
+  Rendered administradors/new.html.erb within layouts/application (243.4ms)
+Completed 200 OK in 733ms (Views: 724.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/administradors" for ::1 at 2019-11-27 05:54:45 -0300
+Processing by AdministradorsController#index as HTML
+  Rendering administradors/index.html.erb within layouts/application
+  [1m[36mAdministrador Load (0.0ms)[0m  [1m[34mSELECT "administradors".* FROM "administradors"[0m
+  Rendered administradors/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 269ms (Views: 220.0ms | ActiveRecord: 0.0ms)
+
+
