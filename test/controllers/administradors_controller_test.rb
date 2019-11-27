@@ -15,8 +15,6 @@ class AdministradorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-    assert_redirected_to administrador_url(Administrador.last)
-  end
 
   test "should show administrador" do
     get administrador_url(@administrador)
@@ -27,6 +25,7 @@ class AdministradorsControllerTest < ActionDispatch::IntegrationTest
     get edit_administrador_url(@administrador)
     assert_response :success
   end
+
 
   test "should destroy administrador" do
     assert_difference('Administrador.count', -1) do
