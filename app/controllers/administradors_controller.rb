@@ -14,6 +14,7 @@ class AdministradorsController < ApplicationController
 
   # GET /administradors/new
   def new
+    @logado = Administrador.get_admin_logado
     @administrador = Administrador.new
   end
 
