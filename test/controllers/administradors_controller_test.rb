@@ -5,11 +5,6 @@ class AdministradorsControllerTest < ActionDispatch::IntegrationTest
     @administrador = administradors(:one)
   end
 
-  test "should get index" do
-    get administradors_url
-    assert_response :success
-  end
-
   test "should get new" do
     get new_administrador_url
     assert_response :success
