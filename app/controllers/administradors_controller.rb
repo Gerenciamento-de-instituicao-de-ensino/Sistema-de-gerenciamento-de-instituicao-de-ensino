@@ -1,5 +1,14 @@
 class AdministradorsController < ApplicationController
+  before_action :loginErro
   before_action :set_administrador, only: [:show, :edit, :update, :destroy]
+
+
+
+  def loginErro
+    if Administrador.get_admin_logado.nil?
+      render 'logins/erro' and return
+    end
+  end
 
   # GET /administradors
   # GET /administradors.json
@@ -10,6 +19,7 @@ class AdministradorsController < ApplicationController
   # GET /administradors/1
   # GET /administradors/1.json
   def show
+    @logado = Administrador.get_admin_logado
   end
 
   # GET /administradors/new
@@ -26,11 +36,12 @@ class AdministradorsController < ApplicationController
   # POST /administradors.json
   def create
     @administrador = Administrador.new(administrador_params)
+    @logado = Administrador.get_admin_logado
 
     respond_to do |format|
       if @administrador.save
-        format.html { redirect_to @administrador, notice: 'Administrador was successfully created.' }
-        format.json { render :show, status: :created, location: @administrador }
+        format.html { redirect_to @logado, notice: 'Administrador was successfully created.' }
+        format.json { render :show, status: :created, location: @logado}
       else
         format.html { render :new }
         format.json { render json: @administrador.errors, status: :unprocessable_entity }
@@ -57,7 +68,7 @@ class AdministradorsController < ApplicationController
   def destroy
     @administrador.destroy
     respond_to do |format|
-      format.html { redirect_to administradors_url, notice: 'Administrador was successfully destroyed.' }
+      format.html { redirect_to logins_path, notice: 'Administrador was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

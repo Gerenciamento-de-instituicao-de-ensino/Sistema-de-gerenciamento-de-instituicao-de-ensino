@@ -7,6 +7,10 @@ class LoginsController < ApplicationController
     Administrador.verificar_cadastro
   end
 
+  def erro
+    redirect_to '/logins/erro'
+  end
+
   def sair
     Administrador.set_admin_logado(nil)
     redirect_to '/logins'
