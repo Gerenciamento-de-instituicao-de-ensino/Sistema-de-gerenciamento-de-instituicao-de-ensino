@@ -1,14 +1,21 @@
 class AdministradorsController < ApplicationController
   before_action :loginErro
   before_action :set_administrador, only: [:show, :edit, :update, :destroy]
+  before_action :tools, only: [:index]
 
 
-
+  # Junto com o before_action :loginErro acima, impedem que o sistema seja acessado sem uma conta logada
   def loginErro
     if Administrador.get_admin_logado.nil?
       render 'logins/erro' and return
     end
   end
+
+  def tools
+    @administrador = Administrador.get_admin_logado
+    render 'administradors/tools' and return
+  end
+
 
   # GET /administradors
   # GET /administradors.json
@@ -19,12 +26,16 @@ class AdministradorsController < ApplicationController
   # GET /administradors/1
   # GET /administradors/1.json
   def show
+    #passa para a view 'show' qual a conta logada para que possa utilizar o id para deletar
     @logado = Administrador.get_admin_logado
+
   end
 
   # GET /administradors/new
   def new
+    #passa para a view 'new' qual a conta logada para que possa retornar à página correta
     @logado = Administrador.get_admin_logado
+
     @administrador = Administrador.new
   end
 
