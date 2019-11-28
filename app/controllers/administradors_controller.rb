@@ -1,6 +1,7 @@
 class AdministradorsController < ApplicationController
   before_action :loginErro
   before_action :set_administrador, only: [:show, :edit, :update, :destroy]
+  #obriga a action index a renderizar a view tools junto com a função tools abaixo
   before_action :tools, only: [:index]
 
 
