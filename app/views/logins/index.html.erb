@@ -1,0 +1,40 @@
+<html>
+
+
+<%= form_with scope: :login, url:logins_path, local:true do |form| %>
+
+  <h1>Login</h1><br>
+
+  <label>Login:
+    <%= text_field_tag :login, nil, id:"Login", placeholder:"Login" %>
+  </label><br>
+  <label>Password:
+    <%= text_field_tag :senha, nil, id:"senhaLogin", type:"password", placeholder:"Senha" %>
+  </label><br>
+
+
+
+  <button style="vertical-align:middle">Sign In</button>
+
+  <p id="notice"><label class="notice"><%= notice %></label></p>
+
+  <script>selecionarEmailSenha("<%=@email%>","<%=@senha%>")</script>
+
+  <% if(@resultadoLogin != "")
+       valor = ""
+       resultado =@resultadoLogin
+       valorId = "resultadoPositivo"
+       if resultado.split('-')[0] == 'erro'
+         valor = "color: red"
+         resultado = resultado.split('-')[1]
+         valorId = "resultadoNegativo"
+       end
+  %>
+    <label>
+      <%= resultado %>
+    </label>
+  <% end %><br>
+<% end %>
+
+</body>
+</html>

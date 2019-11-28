@@ -67,6 +67,8 @@ class AdministradorsController < ApplicationController
       @administrador = Administrador.find(params[:id])
     end
 
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def administrador_params
       params.require(:administrador).permit(:login, :senha)
