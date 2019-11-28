@@ -7,7 +7,13 @@ Rails.application.routes.draw do
   get ('logins/index')
   put ('logins/index')
 
-  resources :logins, :except => [:show]
+  get('logins/erro')
+
+  resources :logins, :except => [:show]do
+    collection do
+      get :erro
+    end
+  end
 
   get 'logins/sair'
 

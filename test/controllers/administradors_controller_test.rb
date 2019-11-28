@@ -3,7 +3,6 @@ require 'test_helper'
 class AdministradorsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @administrador = administradors(:one)
-    @logado = administradors(:one)
   end
 
   test "should show administrador" do
@@ -16,12 +15,4 @@ class AdministradorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-
-  test "should destroy administrador" do
-    assert_difference('Administrador.count', -1) do
-      delete administrador_url(@administrador)
-    end
-
-    assert_redirected_to administradors_url
-  end
 end
