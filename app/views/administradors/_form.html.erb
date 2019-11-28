@@ -1,15 +1,4 @@
 <%= form_with(model: administrador, local: true) do |form| %>
-  <% if administrador.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(administrador.errors.count, "error") %> prohibited this administrador from being saved:</h2>
-
-      <ul>
-      <% administrador.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= form.label :login %>
@@ -17,11 +6,24 @@
   </div>
 
   <div class="field">
-    <%= form.label :senha %>
+    <%= form.label :password %>
     <%= form.text_field :senha, id: :administrador_senha %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <% if administrador.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(administrador.errors.count, "error") %> prohibited this administrador from being saved:</h2>
+
+      <ul>
+        <% administrador.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <% end %>

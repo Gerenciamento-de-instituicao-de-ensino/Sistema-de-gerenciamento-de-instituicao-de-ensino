@@ -10,5 +10,6 @@
   <%= @administrador.senha %>
 </p>
 
+<%= link_to 'New Admin', new_administrador_path%> |
 <%= link_to 'Edit', edit_administrador_path(@administrador) %> |
-<%= link_to 'Back', administradors_path %>
+<%= link_to 'Log Out', logins_sair_path %>

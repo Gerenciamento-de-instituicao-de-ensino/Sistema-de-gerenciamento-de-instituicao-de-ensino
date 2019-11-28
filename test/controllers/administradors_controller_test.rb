@@ -3,18 +3,8 @@ require 'test_helper'
 class AdministradorsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @administrador = administradors(:one)
+    @logado = administradors(:one)
   end
-
-  test "should get index" do
-    get administradors_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_administrador_url
-    assert_response :success
-  end
-
 
   test "should show administrador" do
     get administrador_url(@administrador)

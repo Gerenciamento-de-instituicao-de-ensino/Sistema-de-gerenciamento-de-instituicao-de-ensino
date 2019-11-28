@@ -14,6 +14,7 @@ class AdministradorsController < ApplicationController
 
   # GET /administradors/new
   def new
+    @logado = Administrador.get_admin_logado
     @administrador = Administrador.new
   end
 
@@ -66,6 +67,8 @@ class AdministradorsController < ApplicationController
     def set_administrador
       @administrador = Administrador.find(params[:id])
     end
+
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def administrador_params

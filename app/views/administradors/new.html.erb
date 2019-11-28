@@ -2,4 +2,4 @@
 
 <%= render 'form', administrador: @administrador %>
 
-<%= link_to 'Back', administradors_path %>
+<%= link_to 'Back', administrador_path(@logado.id.to_s) %>
