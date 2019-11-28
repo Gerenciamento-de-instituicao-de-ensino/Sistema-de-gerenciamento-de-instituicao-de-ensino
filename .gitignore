@@ -11,7 +11,9 @@
 /tmp/
 /.idea/
 /log/
-
+/db/development.sqlite3
+/db/test.sqlite3
+/log/development.log
 # Used by dotenv library to load environment variables.
 # .env
 
